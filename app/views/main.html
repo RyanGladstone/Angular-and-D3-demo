@@ -1,3 +1,8 @@
 <h4>D3 + Angular</h4>
 
-<div d3-bars bar-height="20" bar-padding="5"></div>
+<div ng-repeat="d in d3Data">
+  Name: <input type="text" ng-model="d.name" /><br />
+  Score: <input type="number" ng-model="d.score" />
+</div>
+
+<div d3-bars bar-height="20" bar-padding="5" data="d3Data"></div>

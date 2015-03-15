@@ -75,7 +75,9 @@ angularAndD3App.directive('d3Bars',
 
       return {
         restrict: 'EA',
-        scope: {},
+        scope: {
+          data: '=' // bi-directional data binding
+        },
         link: function(scope, element, attrs) {
           d3Service.d3().then(function(d3) {
             
@@ -93,19 +95,17 @@ angularAndD3App.directive('d3Bars',
                 scope.$apply();
               };
             
-              scope.data = [
-                { name: 'Greg', score: 98 },
-                { name: 'Ari', score: 96 },
-                { name: 'Q', score: 75 },
-                { name: 'Loser', score: 48 }
-              ];
-              
               // Watch for resize event
               scope.$watch( function() {
                 return angular.element($window)[0].innerWidth;
               }, function() {
                 scope.render(scope.data);
               });
+
+              // Watch for data changes
+              scope.$watch('data', function(newVals, oldVals) {
+                return scope.render(newVals);
+              }, true);
               
               scope.render = function(data) {
                 // our custom d3 code

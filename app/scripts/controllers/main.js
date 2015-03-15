@@ -9,9 +9,15 @@
  */
 angular.module('angularAndD3App')
   .controller('MainCtrl', function ($scope) {
-    $scope.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
+
+    // Should be d3Data?
+    $scope.d3Data = [
+      { name: 'Greg', score: 98 },
+      { name: 'Ari', score: 96 },
+      { name: 'Q', score: 75 },
+      { name: 'Loser', score: 48 }
     ];
+              
+
+
   });
