@@ -5,6 +5,8 @@ version 0.11.1.
 
 ## Getting started
 
+Requires Node, Bower, Grunt and Ruby.
+
   $ npm install
 
   $ grunt
